@@ -23,17 +23,34 @@ const CandidateSearch = () => {
       setLoading(true);
       try {
         const result = await searchGithub();
-        setCandidates(result);
+        if (result && result.length > 0) {
+          const detailedCandidates = await Promise.all(
+            result.map(async (user: any) => {
+              const userDetails = await searchGithubUser(user.login);
+              return {
+                username: user.login,
+                name: userDetails.name || 'N/A',
+                location: userDetails.location || 'N/A',
+                email: userDetails.email || 'N/A',
+                avatar_url: userDetails.avatar_url,
+                html_url: userDetails.html_url,
+                company: userDetails.company || 'N/A',
+              };
+            })
+          );
+          setCandidates(detailedCandidates);
+        }else{
+          setError('No candidates found.');
+        }
       } catch (err) {
         setError('Failed to fetch candidates');
       } finally {
         setLoading(false);
       }
-    }
+    };
     fetchCandidates();
   }, []);
 
-  
 
   const saveCandidate = (candidate: Candidate) => {
     const updatedSavedCandidates = [...savedCandidates, candidate];
