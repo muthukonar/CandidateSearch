@@ -8,25 +8,25 @@ const CandidateSearch = () => {
   const [savedCandidates, setSavedCandidates] = useState<Candidate[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string>('');
-  
-  
+
+
   // Data from localstorage
   useEffect(() => {
     const savedlocal = JSON.parse(localStorage.getItem('savedCandidates') || '[]');
     setSavedCandidates(savedlocal);
-  },[]);
-  
+  }, []);
+
   // From GitHUB API
 
-  useEffect(()=>{
+  useEffect(() => {
     const fetchCandidates = async () => {
       setLoading(true);
       try {
         const result = await searchGithub();
         setCandidates(result);
-      } catch (err){
+      } catch (err) {
         setError('Failed to fetch candidates');
-      }finally {
+      } finally {
         setLoading(false);
       }
     }
@@ -42,16 +42,16 @@ const CandidateSearch = () => {
   };
 
   const handleSkipCandidate = () => {
-    setCurrentIndex(currentIndex + 1); 
+    setCurrentIndex(currentIndex + 1);
   };
 
   const currentCandidate = candidates[currentIndex];
   if (!currentCandidate) {
-    return <div>No more candidates available</div>; 
+    return <div>No more candidates available</div>;
   }
 
-return (
-    <div style={{ paddingTop: '70px' }}> 
+  return (
+    <div style={{ paddingTop: '70px' }}>
       <h1>Candidate Search</h1>
       {loading && <p>Loading...</p>}
       {error && <p>{error}</p>}
@@ -73,7 +73,7 @@ return (
           <p>{currentCandidate.company}</p>
         </div>
 
-        <div style={{ marginTop: '20px' , display: 'flex', gap: '90px' }}>
+        <div style={{ marginTop: '20px', display: 'flex', gap: '90px' }}>
           <button onClick={() => saveCandidate(currentCandidate)} className="btn btn-success">+</button>
           <button onClick={handleSkipCandidate} className="btn btn-danger"> - </button>
         </div>
