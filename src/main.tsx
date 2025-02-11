@@ -6,7 +6,7 @@ import App from './App.tsx';
 import CandidateSearch from './pages/CandidateSearch.tsx';
 import SavedCandidates from './pages/SavedCandidates.tsx';
 import ErrorPage from './pages/ErrorPage.tsx';
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const router = createBrowserRouter([
   {
