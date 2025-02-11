@@ -58,6 +58,7 @@ const SavedCandidates = () => {
     <div style={{ paddingTop: '70px', textAlign: 'center' }}>
       <h1>Potential Candidates</h1>
       <div className="table-responsive">
+      <div className="table-wrapper d-flex flex-column">
         <table className="table table-bordered mx-auto" style={{ width: '80%' }}>
           <thead className="bg-dark">
             <tr>
@@ -88,8 +89,18 @@ const SavedCandidates = () => {
                   Company {sortConfig.key === 'company' ? (sortConfig.direction === 'ascending' ? '↑' : '↓') : ''}
                 </button>
               </th>
-              <th>Bio</th>
-              <th>Profile</th>
+              <th>
+                <button onClick={() => handleSort('bio')}>
+                  Bio {sortConfig.key === 'bio' ? (sortConfig.direction === 'ascending' ? '↑' : '↓') : ''}
+                </button>
+              </th>
+              {/* <th>Bio</th> */}
+              <th>
+                <button onClick={() => handleSort('profile')}>
+                  Profile Link {sortConfig.key === 'profile' ? (sortConfig.direction === 'ascending' ? '↑' : '↓') : ''}
+                </button>
+              </th>
+              {/* <th>Profile</th> */}
               <th>Reject</th>
             </tr>
           </thead>
@@ -102,7 +113,6 @@ const SavedCandidates = () => {
                 <td style={{ wordWrap: 'break-word', maxWidth: '150px' }}>{candidate.name}</td>
                 <td style={{ wordWrap: 'break-word', maxWidth: '150px' }}>{candidate.location}</td>
                 <td style={{ wordWrap: 'break-word', maxWidth: '150px' }}>{candidate.email}</td>
-
                 <td style={{ wordWrap: 'break-word', maxWidth: '150px' }}>{candidate.company}</td>
                 <td style={{ wordWrap: 'break-word', maxWidth: '150px' }}>{candidate.bio}</td>
                 <td>
@@ -118,7 +128,8 @@ const SavedCandidates = () => {
           </tbody>
         </table>
       </div>
-    </div>
+      </div>
+      </div>
   );
 };
 
