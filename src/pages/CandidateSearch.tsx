@@ -73,7 +73,7 @@ return (
           <p>{currentCandidate.company}</p>
         </div>
 
-        <div style={{ marginTop: '20px' }}>
+        <div style={{ marginTop: '20px' , display: 'flex', gap: '90px' }}>
           <button onClick={() => saveCandidate(currentCandidate)} className="btn btn-success">+</button>
           <button onClick={handleSkipCandidate} className="btn btn-danger"> - </button>
         </div>
