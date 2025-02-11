@@ -15,9 +15,9 @@ const SavedCandidates = () => {
     setSavedCandidates(saved);
   }, []);
 
-  const handleRemoveCandidate = (candidateId: number) => {
+  const handleRemoveCandidate = (candidateUsername: number) => {
     const updatedSavedCandidates = savedCandidates.filter(
-      (candidate) => candidate.id !== candidateId
+      (candidate) => candidate.username !== candidateUsername
     );
     setSavedCandidates(updatedSavedCandidates);
     localStorage.setItem('savedCandidates', JSON.stringify(updatedSavedCandidates));
@@ -95,7 +95,7 @@ const SavedCandidates = () => {
           </thead>
           <tbody>
             {savedCandidates.map((candidate) => (
-              <tr key={candidate.id}>
+              <tr key={candidate.username}>
                 <td>
                   <img src={candidate.avatar_url} alt={candidate.username} width="50" height="50" />
                 </td>
@@ -111,7 +111,7 @@ const SavedCandidates = () => {
                   </a>
                 </td>
                 <td>
-                  <button onClick={() => handleRemoveCandidate(candidate.id)} className="btn btn-danger" >-</button>
+                  <button onClick={() => handleRemoveCandidate(candidate.username)} className="btn btn-danger" >-</button>
                 </td>
               </tr>
             ))}
