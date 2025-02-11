@@ -67,7 +67,7 @@ const SavedCandidates = () => {
       <h1>Potential Candidates</h1>
       <div className="table-responsive">
         <table className="table table-bordered mx-auto" style={{ width: '80%' }}>
-          <thead>
+          <thead className="bg-dark">
             <tr>
               <th>
             <button onClick={() => handleSort('username')}>
@@ -116,7 +116,7 @@ const SavedCandidates = () => {
                 </td>
                 <td>{candidate.company}</td>
                 <td>
-                  <button onClick={() => handleRemoveCandidate(candidate.id)} className="btn btn-danger">-</button>
+                  <button onClick={() => handleRemoveCandidate(candidate.id)} className="btn btn-danger" >-</button>
                 </td>
               </tr>
             ))}
