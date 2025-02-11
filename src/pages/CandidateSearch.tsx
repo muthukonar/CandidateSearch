@@ -74,8 +74,8 @@ return (
         </div>
 
         <div style={{ marginTop: '20px' }}>
-          <button onClick={() => saveCandidate(currentCandidate)}>+</button>
-          <button onClick={handleSkipCandidate}> - </button>
+          <button onClick={() => saveCandidate(currentCandidate)} className="btn btn-success">+</button>
+          <button onClick={handleSkipCandidate} className="btn btn-danger"> - </button>
         </div>
       </div>
     </div>
