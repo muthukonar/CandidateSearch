@@ -35,6 +35,7 @@ const CandidateSearch = () => {
                 avatar_url: userDetails.avatar_url,
                 html_url: userDetails.html_url,
                 company: userDetails.company || 'N/A',
+                 bio: userDetails.bio || 'N/A'
               };
             })
           );
@@ -89,6 +90,7 @@ const CandidateSearch = () => {
           <p>{currentCandidate.email}</p>
           <p>{currentCandidate.html_url}</p>
           <p>{currentCandidate.company}</p>
+          <p>{currentCandidate.bio}</p>
         </div>
 
         <div style={{ marginTop: '20px', display: 'flex', gap: '90px' }}>

@@ -62,13 +62,13 @@ const SavedCandidates = () => {
           <thead className="bg-dark">
             <tr>
               <th>
-            <button onClick={() => handleSort('username')}>
-                  Name {sortConfig.key === 'username' ? (sortConfig.direction === 'ascending' ? '↑' : '↓') : ''}
+              <button onClick={() => handleSort('username')}>
+                  Image {sortConfig.key === 'name' ? (sortConfig.direction === 'ascending' ? '↑' : '↓') : ''}
                 </button>
               </th>
               <th>
                 <button onClick={() => handleSort('username')}>
-                  Username {sortConfig.key === 'username' ? (sortConfig.direction === 'ascending' ? '↑' : '↓') : ''}
+                  Name {sortConfig.key === 'username' ? (sortConfig.direction === 'ascending' ? '↑' : '↓') : ''}
                 </button>
               </th>
               <th>
@@ -76,37 +76,40 @@ const SavedCandidates = () => {
                   Location {sortConfig.key === 'location' ? (sortConfig.direction === 'ascending' ? '↑' : '↓') : ''}
                 </button>
               </th>
-              <th>Avatar</th>
+           
               <th>
                 <button onClick={() => handleSort('email')}>
                   Email {sortConfig.key === 'email' ? (sortConfig.direction === 'ascending' ? '↑' : '↓') : ''}
                 </button>
               </th>
-              <th>Profile</th>
+              
               <th>
                 <button onClick={() => handleSort('company')}>
                   Company {sortConfig.key === 'company' ? (sortConfig.direction === 'ascending' ? '↑' : '↓') : ''}
                 </button>
               </th>
+              <th>Bio</th>
+              <th>Profile</th>
               <th>Reject</th>
             </tr>
           </thead>
           <tbody>
             {savedCandidates.map((candidate) => (
               <tr key={candidate.id}>
-                <td style={{ wordWrap: 'break-word', maxWidth: '150px' }}>{candidate.username}</td>
-                <td style={{ wordWrap: 'break-word', maxWidth: '150px' }}>{candidate.username}</td>
-                <td style={{ wordWrap: 'break-word', maxWidth: '150px' }}>{candidate.location}</td>
                 <td>
                   <img src={candidate.avatar_url} alt={candidate.username} width="50" height="50" />
                 </td>
+                <td style={{ wordWrap: 'break-word', maxWidth: '150px' }}>{candidate.name}</td>
+                <td style={{ wordWrap: 'break-word', maxWidth: '150px' }}>{candidate.location}</td>
                 <td style={{ wordWrap: 'break-word', maxWidth: '150px' }}>{candidate.email}</td>
+                
+                <td style={{ wordWrap: 'break-word', maxWidth: '150px' }}>{candidate.company}</td>
+                <td style={{ wordWrap: 'break-word', maxWidth: '150px' }}>{candidate.bio}</td>
                 <td>
                   <a href={candidate.html_url} target="_blank" rel="noopener noreferrer">
                     Profile
                   </a>
                 </td>
-                <td style={{ wordWrap: 'break-word', maxWidth: '150px' }}>{candidate.company}</td>
                 <td>
                   <button onClick={() => handleRemoveCandidate(candidate.id)} className="btn btn-danger" >-</button>
                 </td>
