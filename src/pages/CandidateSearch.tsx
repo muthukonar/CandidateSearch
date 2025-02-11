@@ -33,6 +33,7 @@ const CandidateSearch = () => {
     fetchCandidates();
   }, []);
 
+  
 
   const saveCandidate = (candidate: Candidate) => {
     const updatedSavedCandidates = [...savedCandidates, candidate];
@@ -84,3 +85,4 @@ const CandidateSearch = () => {
 
 
 export default CandidateSearch;
+
