@@ -52,7 +52,7 @@ const SavedCandidates = () => {
     return <div>No potential candidates have been saved yet!</div>;
   }
 
-  
+
 
   return (
     <div style={{ paddingTop: '70px', textAlign: 'center' }}>
@@ -62,7 +62,7 @@ const SavedCandidates = () => {
           <thead className="bg-dark">
             <tr>
               <th>
-              <button onClick={() => handleSort('username')}>
+                <button onClick={() => handleSort('username')}>
                   Image {sortConfig.key === 'name' ? (sortConfig.direction === 'ascending' ? '↑' : '↓') : ''}
                 </button>
               </th>
@@ -76,13 +76,13 @@ const SavedCandidates = () => {
                   Location {sortConfig.key === 'location' ? (sortConfig.direction === 'ascending' ? '↑' : '↓') : ''}
                 </button>
               </th>
-           
+
               <th>
                 <button onClick={() => handleSort('email')}>
                   Email {sortConfig.key === 'email' ? (sortConfig.direction === 'ascending' ? '↑' : '↓') : ''}
                 </button>
               </th>
-              
+
               <th>
                 <button onClick={() => handleSort('company')}>
                   Company {sortConfig.key === 'company' ? (sortConfig.direction === 'ascending' ? '↑' : '↓') : ''}
@@ -102,7 +102,7 @@ const SavedCandidates = () => {
                 <td style={{ wordWrap: 'break-word', maxWidth: '150px' }}>{candidate.name}</td>
                 <td style={{ wordWrap: 'break-word', maxWidth: '150px' }}>{candidate.location}</td>
                 <td style={{ wordWrap: 'break-word', maxWidth: '150px' }}>{candidate.email}</td>
-                
+
                 <td style={{ wordWrap: 'break-word', maxWidth: '150px' }}>{candidate.company}</td>
                 <td style={{ wordWrap: 'break-word', maxWidth: '150px' }}>{candidate.bio}</td>
                 <td>

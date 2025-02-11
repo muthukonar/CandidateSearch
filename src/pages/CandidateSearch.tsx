@@ -35,12 +35,12 @@ const CandidateSearch = () => {
                 avatar_url: userDetails.avatar_url,
                 html_url: userDetails.html_url,
                 company: userDetails.company || 'N/A',
-                 bio: userDetails.bio || 'N/A'
+                bio: userDetails.bio || 'N/A'
               };
             })
           );
           setCandidates(detailedCandidates);
-        }else{
+        } else {
           setError('No candidates found.');
         }
       } catch (err) {
@@ -71,31 +71,33 @@ const CandidateSearch = () => {
 
   return (
     <div style={{ paddingTop: '70px' }}>
-      <h1>Candidate Search</h1>
-      {loading && <p>Loading...</p>}
-      {error && <p>{error}</p>}
-      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-        <img
-          src={currentCandidate.avatar_url}
-          alt={currentCandidate.name}
-          width="150"
-          height="150"
-          style={{ borderRadius: '50%' }}
-        />
+      <div className="container text-center mt-5 bg-dark">
+        <h1>Candidate Search</h1>
+        {loading && <p>Loading...</p>}
+        {error && <p>{error}</p>}
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+          <img
+            src={currentCandidate.avatar_url}
+            alt={currentCandidate.name}
+            width="150"
+            height="150"
+            style={{ borderRadius: '50%' }}
+          />
 
-        <div style={{ textAlign: 'center', marginTop: '10px' }}>
-          <h3>{currentCandidate.username}</h3>
-          <p>{currentCandidate.name}</p>
-          <p>{currentCandidate.location}</p>
-          <p>{currentCandidate.email}</p>
-          <p>{currentCandidate.html_url}</p>
-          <p>{currentCandidate.company}</p>
-          <p>{currentCandidate.bio}</p>
-        </div>
+          <div style={{ textAlign: 'center', marginTop: '10px' }}>
+            <h3>{currentCandidate.username}</h3>
+            <p>{currentCandidate.name}</p>
+            <p>{currentCandidate.location}</p>
+            <p>{currentCandidate.email}</p>
+            <p>{currentCandidate.html_url}</p>
+            <p>{currentCandidate.company}</p>
+            <p>{currentCandidate.bio}</p>
+          </div>
 
-        <div style={{ marginTop: '20px', display: 'flex', gap: '90px' }}>
-          <button onClick={() => saveCandidate(currentCandidate)} className="btn btn-success" >+</button>
-          <button onClick={handleSkipCandidate} className="btn btn-danger"> - </button>
+          <div style={{ marginTop: '20px', display: 'flex', gap: '90px' }}>
+            <button onClick={() => saveCandidate(currentCandidate)} className="btn btn-success" >+</button>
+            <button onClick={handleSkipCandidate} className="btn btn-danger"> - </button>
+          </div>
         </div>
       </div>
     </div>
