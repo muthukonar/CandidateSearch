@@ -32,6 +32,8 @@ Deployed link : - https://candidatesearch-q8nj.onrender.com
 
 GitHub link :- https://github.com/muthukonar/CandidateSearch 
 
+Video link :- https://drive.google.com/file/d/1BLJYuxYiCmW8-mQ-cnlfBk7mm1nKUJ4U/view?usp=drive_link 
+
 Screenshots :
 
 !["Screenshot1”](./src/assets/SS1.png )
